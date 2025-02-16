@@ -4,5 +4,6 @@ config({ path: `.env.${process.env.NODE_ENV || "development"}.local` })
 
 export const {
     PORT, NODE_ENV, DB_URI,
-    JWT_SECRET, JWT_EXPIRES
+    JWT_SECRET, JWT_EXPIRES,
+    ARCJET_ENV, ARCJET_API_KEY
 } = process.env
