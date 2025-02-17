@@ -9,6 +9,7 @@ import connectDB from "./database/mongodb.js";
 import errorMiddleware from "./middleware/error.middleware.js";
 import cookieParser from "cookie-parser";
 import arcjetMiddleware from "./middleware/arcjet.middleware.js";
+import wfRouter from "./routes/workflow.route.js";
 
 const app = express();
 
@@ -20,6 +21,8 @@ app.use(arcjetMiddleware)
 app.use("/api/v1/auth", authRouter)
 app.use("/api/v1/users", userRouter)
 app.use("/api/v1/subs", subsRouter)
+app.use("/api/v1/wf", wfRouter)
+
 
 app.use(errorMiddleware)
 

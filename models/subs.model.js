@@ -26,7 +26,7 @@ const SubsSchema = new mongoose.Schema({
     },
     periods: {
         type: String,
-        enum: ["daily", "weekly", "monthy", "yearly"],
+        enum: ["daily", "weekly", "monthly", "yearly"],
         default: "monthly"
     },
     startDate: {

@@ -1,4 +1,7 @@
 import { Router } from "express";
+import { createSubs, getUserSubs } from "../controllers/subs.controller.js";
+
+import authorize from "../middleware/auth.middleware.js"
 
 const subsRouter = Router()
 
@@ -10,17 +13,13 @@ subsRouter.get("/:id", (req, res) => {
     res.send({ title: "Get a subscription"})
 })
 
-subsRouter.get("/user/:id", (req, res) => {
-    res.send({ title: "Get all users subscriptions"})
-})
+subsRouter.get("/user/:id", authorize, getUserSubs)
 
 subsRouter.get("/oncoming-renews", (req, res) => {
     res.send({ title: "Get oncoming renews"})
 })
 
-subsRouter.post("/", (req, res) => {
-    res.send({ title: "Create a subscription"})
-})
+subsRouter.post("/", authorize, createSubs)
 
 subsRouter.put("/:id", (req, res) => {
     res.send({ title: "Update a subscription"})
